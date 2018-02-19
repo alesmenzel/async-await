@@ -1,6 +1,6 @@
 {
-  "name": "async-await-patterns",
-  "version": "0.1.0",
+  "name": "async-await-control",
+  "version": "0.2.0",
   "description": "Async/await flow control functions",
   "main": "index.js",
   "scripts": {
