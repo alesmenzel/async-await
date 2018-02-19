@@ -24,10 +24,10 @@ Run any number of tasks in parallel
 
 #### Parameters
 
-| Name  |        Type        |                                                                                   Description |
-| ----- | :----------------: | --------------------------------------------------------------------------------------------: |
+| Name  |       Type       | Description                                                                                   |
+| ----- | :--------------: | :-------------------------------------------------------------------------------------------- |
 | tasks | Iterable\|Object | A collection of async functions to run. Each async function must return a Promise or a value. |
-| limit |       Number       |                                                            Limit the number of parallel tasks |
+| limit |      Number      | Limit the number of parallel tasks                                                            |
 
 ```javascript
 // tasks can be Array/Iterable/Object
@@ -47,8 +47,8 @@ Run tasks one by one, passing down the result of previous task
 
 #### Waterfall
 
-| Name  |        Type        |                                                                                                                                                                    Description |
-| ----- | :----------------: | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Name  |   Type   | Description                                                                                                                                                                    |
+| ----- | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | tasks | Iterable | An array of async functions to run. Each function should complete with any number of result values. The result values will be passed as arguments, in order, to the next task. |
 
 Returns array of results or a single value if only single value is passed in the last iteratee.
@@ -56,8 +56,8 @@ Returns array of results or a single value if only single value is passed in the
 ```javascript
 const tasks = [
   () => Promise.resolve(1),
-  (a) => Promise.resolve([1, 2]),
-  (a, b) => Promise.resolve([3, 4]),
+  (a) => Promise.resolve([1, 2]), // a = 1
+  (a, b) => Promise.resolve([3, 4]), // a = 1, b = 2
 ];
 
 const res = await waterfall(tasks);
@@ -66,8 +66,8 @@ const res = await waterfall(tasks);
 
 const tasks = [
   () => Promise.resolve(1),
-  (a) => Promise.resolve([1, 2]),
-  (a, b) => Promise.resolve(3),
+  (a) => Promise.resolve([1, 2]), // a = 1
+  (a, b) => Promise.resolve(3), // a = 1, b = 2
 ];
 
 const res = await waterfall(tasks);
@@ -80,8 +80,8 @@ Runs tasks in a series
 
 #### Series
 
-| Name  |        Type        |                                                                                                                                                                    Description |
-| ----- | :----------------: | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Name  |   Type   | Description                                                                           |
+| ----- | :------: | :------------------------------------------------------------------------------------ |
 | tasks | Iterable | An array of async functions to run. Each function should return a Promise or a value. |
 
 ```javascript
