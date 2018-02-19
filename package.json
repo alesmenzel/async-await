@@ -1,13 +1,13 @@
 {
-  "name": "@alesmenzel/async-await-patterns",
-  "version": "1.0.0",
-  "description": "Async/await helper functions",
+  "name": "async-await-patterns",
+  "version": "0.1.0",
+  "description": "Async/await flow control functions",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./src/**/*.spec.js"
   },
-  "keywords": [],
-  "author": "Aleš Menzel <alesmenzel@gmail.com",
+  "keywords": ["async", "await", "control", "flow", "utility"],
+  "author": "Aleš Menzel <alesmenzel@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",

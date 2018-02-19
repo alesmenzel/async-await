@@ -1,3 +1,5 @@
+const isIterable = require('./helper/is-iterable');
+
 /**
  * Run tasks in waterfall and returns the result
  *
@@ -5,7 +7,10 @@
  */
 const waterfall = async tasks => Array.from(tasks).reduce(async (accP, task) => {
   const acc = await accP;
-  return task(...acc);
+  if (isIterable(acc)) {
+    return task(...acc);
+  }
+  return task(acc);
 }, Promise.resolve([]));
 
 module.exports = waterfall;

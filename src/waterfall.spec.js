@@ -23,20 +23,40 @@ describe('waterfall', () => {
     expect(res).to.be.deep.equal(['third']);
   });
 
-  it('runs tasks in waterfall for array', async () => {
+  it('runs tasks in waterfall for array, returning single values', async () => {
     const tasks = [
-      () => asyncFunction('first', 5, 'first'),
-      (...resFirst) => {
-        expect(resFirst).to.be.deep.equal(['first']);
-        return asyncFunction('second', 3, 1, 2, 3);
+      () => Promise.resolve(1),
+      (a) => {
+        expect(a).to.equal(1);
+        return Promise.resolve([1, 2]);
       },
-      (...resSecond) => {
-        expect(resSecond).to.be.deep.equal([1, 2, 3]);
-        return asyncFunction('third', 1, 4, 5);
+      (a, b) => {
+        expect(a).to.be.deep.equal(1);
+        expect(b).to.be.deep.equal(2);
+        return Promise.resolve(3);
       },
     ];
 
     const res = await waterfall(tasks);
-    expect(res).to.be.deep.equal([4, 5]);
+    expect(res).to.be.deep.equal(3);
+  });
+
+
+  it('runs tasks in waterfall for array, returning array of values', async () => {
+    const tasks = [
+      () => Promise.resolve(1),
+      (a) => {
+        expect(a).to.equal(1);
+        return Promise.resolve([1, 2]);
+      },
+      (a, b) => {
+        expect(a).to.be.deep.equal(1);
+        expect(b).to.be.deep.equal(2);
+        return Promise.resolve([2, 3, 4]);
+      },
+    ];
+
+    const res = await waterfall(tasks);
+    expect(res).to.be.deep.equal([2, 3, 4]);
   });
 });
