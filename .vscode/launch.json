@@ -25,6 +25,17 @@
         "--grep",
         "series"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Waterfall",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "./src/**/*.spec.js",
+        "--grep",
+        "waterfall"
+      ]
     }
   ]
 }
