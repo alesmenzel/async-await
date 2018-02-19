@@ -1,0 +1,24 @@
+{
+  "name": "@alesmenzel/async-await-patterns",
+  "version": "1.0.0",
+  "description": "Async/await helper functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./src/**/*.spec.js"
+  },
+  "keywords": [],
+  "author": "Aleš Menzel <alesmenzel@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "mocha": "^5.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  }
+}
