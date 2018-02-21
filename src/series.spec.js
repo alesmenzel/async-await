@@ -6,7 +6,7 @@ const series = require('./series');
 describe('series', () => {
   it('runs tasks in series for iterable', async () => {
     const tasks = {
-      * [Symbol.iterator]() {
+      *[Symbol.iterator]() {
         yield () => asyncFunction('first', 5);
         yield () => asyncFunction('second', 3);
         yield () => asyncFunction('third', 1);

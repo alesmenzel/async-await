@@ -6,7 +6,7 @@ const waterfall = require('./waterfall');
 describe('waterfall', () => {
   it('runs tasks in waterfall for iterable', async () => {
     const tasks = {
-      * [Symbol.iterator]() {
+      *[Symbol.iterator]() {
         yield () => asyncFunction('first', 5, '1', 2);
         yield (...resultsFirst) => {
           expect(resultsFirst).to.be.deep.equal(['1', 2]);
@@ -26,7 +26,7 @@ describe('waterfall', () => {
   it('runs tasks in waterfall for array, returning single values', async () => {
     const tasks = [
       () => Promise.resolve(1),
-      (a) => {
+      a => {
         expect(a).to.equal(1);
         return Promise.resolve([1, 2]);
       },
@@ -41,11 +41,10 @@ describe('waterfall', () => {
     expect(res).to.be.deep.equal(3);
   });
 
-
   it('runs tasks in waterfall for array, returning array of values', async () => {
     const tasks = [
       () => Promise.resolve(1),
-      (a) => {
+      a => {
         expect(a).to.equal(1);
         return Promise.resolve([1, 2]);
       },

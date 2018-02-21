@@ -27,7 +27,7 @@ Run any number of tasks in parallel
 | Name  |       Type       | Description                                                                                   |
 | ----- | :--------------: | :-------------------------------------------------------------------------------------------- |
 | tasks | Iterable\|Object | A collection of async functions to run. Each async function must return a Promise or a value. |
-| limit |      Number      | (Optional) Limit the number of parallel tasks                                                            |
+| limit |      Number      | (Optional) Limit the number of parallel tasks                                                 |
 
 ```javascript
 // tasks can be Array/Iterable/Object

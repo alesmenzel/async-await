@@ -6,7 +6,7 @@ const parallel = require('./parallel');
 describe('parallel', () => {
   it('runs tasks in parallel for iterable', async () => {
     const tasks = {
-      * [Symbol.iterator]() {
+      *[Symbol.iterator]() {
         yield () => asyncFunction('first', 5);
         yield () => asyncFunction('second', 3);
         yield () => asyncFunction('third', 1);
@@ -45,7 +45,7 @@ describe('parallel', () => {
 
   it('runs limited tasks in parallel for iterable', async () => {
     const tasks = {
-      * [Symbol.iterator]() {
+      *[Symbol.iterator]() {
         yield () => asyncFunction('first', 5);
         yield () => asyncFunction('second', 3);
         yield () => asyncFunction('third', 1);
