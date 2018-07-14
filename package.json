@@ -7,9 +7,15 @@
     "test:suite": "mocha ./src/**/*.spec.js",
     "test:lint": "eslint .",
     "test": "run-s test:lint test:suite",
-    "format": "prettier --write src/**/*.js"
+    "format": "eslint . --fix"
   },
-  "keywords": ["async", "await", "control", "flow", "utility"],
+  "keywords": [
+    "async",
+    "await",
+    "control",
+    "flow",
+    "utility"
+  ],
   "author": "Aleš Menzel <alesmenzel@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -22,6 +28,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.4.0",
     "husky": "^0.15.0-rc.8",
+    "lint-staged": "^7.2.0",
     "mocha": "^5.0.1",
     "npm-run-all": "^4.1.2",
     "prettier": "^1.10.2"
@@ -31,8 +38,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

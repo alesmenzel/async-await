@@ -1,9 +1,7 @@
 {
   "extends": ["airbnb", "plugin:prettier/recommended"],
   "env": {
-    "mocha": true,
-    "node": true,
-    "es6": true
+    "mocha": true
   },
   "rules": {
     "no-unused-expressions": "off",
